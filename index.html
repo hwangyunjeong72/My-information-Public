@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -7,7 +8,6 @@
 <title>나를 돌아보는 한걸음</title>
 
 <style>
-/* 전체 페이지 */
 body {
     margin: 0;
     padding: 0;
@@ -17,7 +17,6 @@ body {
     line-height: 1.8;
 }
 
-/* 가운데 본문 */
 .container {
     max-width: 800px;
     margin: 50px auto;
@@ -27,21 +26,18 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* 제목 */
 h1 {
     text-align: center;
     margin-bottom: 15px;
     font-size: 32px;
 }
 
-/* 소개 */
 .intro {
     text-align: center;
     color: #666666;
     margin-bottom: 45px;
 }
 
-/* 소제목 */
 h2 {
     margin-top: 40px;
     margin-bottom: 15px;
@@ -50,7 +46,6 @@ h2 {
     padding-bottom: 8px;
 }
 
-/* 본문 */
 p {
     font-size: 17px;
     line-height: 1.9;
@@ -58,7 +53,6 @@ p {
     margin-bottom: 20px;
 }
 
-/* 구분선 */
 hr {
     margin-top: 45px;
     margin-bottom: 25px;
@@ -66,17 +60,13 @@ hr {
     border-top: 1px solid #dddddd;
 }
 
-/* 마지막 문장 */
 .footer {
     text-align: center;
     color: #777777;
     font-size: 14px;
 }
 
-/* =========================
-   비공개 영역
-========================= */
-
+/* 비공개 영역 */
 .private-area {
     margin-top: 45px;
     padding: 25px;
@@ -126,6 +116,11 @@ button {
 
 button:hover {
     opacity: 0.85;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 button.passkey {
@@ -217,7 +212,6 @@ button.rename {
     color: #777;
 }
 
-/* 모바일 */
 @media (max-width: 600px) {
 
     .container {
@@ -254,9 +248,7 @@ button.rename {
 
 <div class="container">
 
-    <!-- =========================
-         기존 공개 자기소개 영역
-    ========================== -->
+    <!-- 공개 자기소개 -->
 
     <h1>나를 돌아보는 한걸음</h1>
 
@@ -264,7 +256,6 @@ button.rename {
         이 페이지는 지금까지의 나의 가치관과 강점을 돌아보고,
         이 과정을 통해 배운 점을 정리하기 위해 만들었습니다.
     </p>
-
 
     <h2>1. 내가 중요하게 생각하는 가치관</h2>
 
@@ -288,7 +279,6 @@ button.rename {
         가치관은 헌신, 겸손, 정직함 등 올바른 공통체에 대한 도덕적 헌신을
         중요하다고 생각합니다.
     </p>
-
 
     <h2>2. 내가 생각하는 나의 강점</h2>
 
@@ -316,7 +306,7 @@ button.rename {
 
         C. 문제에 대해 방향을 제시하며 중재하는 능력
 
-        우리는 원하든 원하지 않든 인간대 인간으로 대하며
+        우리는 원하든 원하지 않든 인간 대 인간으로 대하며
         토론, 발표, 질의 응답등 다양한 집단활동을 한다.
 
         저는 이러한 대인관계에서 배려심과 겸손을 바탕으로
@@ -328,7 +318,6 @@ button.rename {
         또한 다방면으로 생각하며 나름의 객관적인 시선으로
         강단이 확실하며 사람들을 중재 할 수 있다고 생각한다.
     </p>
-
 
     <h2>3. 이 과정을 통해 배운 점</h2>
 
@@ -350,7 +339,6 @@ button.rename {
         꿰뚫는 시선을 보고 이 수업이 얼마나 깊이가 있는지 생각하였다.
     </p>
 
-
     <hr>
 
     <p class="footer">
@@ -358,9 +346,7 @@ button.rename {
     </p>
 
 
-    <!-- =========================
-         새로 추가된 비공개 영역
-    ========================== -->
+    <!-- 비공개 영역 -->
 
     <section class="private-area">
 
@@ -371,8 +357,6 @@ button.rename {
             Supabase의 secret_notes 테이블에서 인증 후 가져옵니다.
         </p>
 
-
-        <!-- 인증 영역 -->
         <div class="auth-box">
 
             <div id="authStatus">
@@ -381,6 +365,7 @@ button.rename {
 
 
             <!-- 최초 Passkey 등록을 위한 이메일 인증 -->
+
             <div id="emailLoginArea">
 
                 <h3>① 처음 Passkey를 등록할 때</h3>
@@ -407,6 +392,7 @@ button.rename {
 
 
             <!-- Passkey -->
+
             <div id="passkeyArea">
 
                 <h3>② Passkey</h3>
@@ -440,6 +426,7 @@ button.rename {
 
 
             <!-- Passkey 목록 -->
+
             <div
                 id="passkeyManagement"
                 class="passkey-list"
@@ -455,6 +442,7 @@ button.rename {
 
 
         <!-- 잠금 화면 -->
+
         <div
             id="lockedArea"
             class="locked">
@@ -471,6 +459,7 @@ button.rename {
 
 
         <!-- 실제 비공개 데이터 -->
+
         <div
             id="privateContent"
             class="private-content">
@@ -492,44 +481,41 @@ button.rename {
 </div>
 
 
-<!-- =====================================================
-     Supabase JavaScript
-     Passkey 지원에는 supabase-js 2.105.0 이상 필요
-===================================================== -->
-
 <script type="module">
+
+/* =====================================================
+   Supabase
+===================================================== */
 
 import {
     createClient
 } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.105.0/+esm";
 
 
-/* =====================================================
-   1. Supabase 연결 정보
-===================================================== */
-
 const SUPABASE_URL =
     "https://fvhlwblhxbhmhxyjlkel.supabase.co";
+
 
 const SUPABASE_PUBLISHABLE_KEY =
     "sb_publishable_3LtJdScwxvoXc282jBtkeA_WEelZkIs";
 
 
-const supabase = createClient(
-    SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY,
-    {
-        auth: {
-            experimental: {
-                passkey: true
+const supabase =
+    createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY,
+        {
+            auth: {
+                experimental: {
+                    passkey: true
+                }
             }
         }
-    }
-);
+    );
 
 
 /* =====================================================
-   2. 화면 요소
+   화면 요소
 ===================================================== */
 
 const authStatus =
@@ -570,16 +556,7 @@ const passkeyList =
 
 
 /* =====================================================
-   3. Passkey 인증 완료 여부
-=====================================================
-
-   중요:
-   Supabase 세션이 있다고 해서 바로 비공개 내용을
-   보여주지 않습니다.
-
-   Passkey 로그인 버튼을 실제로 성공시킨 경우에만
-   이 브라우저 탭에서 비공개 영역을 엽니다.
-
+   Passkey 인증 완료 상태
 ===================================================== */
 
 let passkeyUnlocked =
@@ -587,7 +564,7 @@ let passkeyUnlocked =
 
 
 /* =====================================================
-   4. 메시지 출력
+   메시지
 ===================================================== */
 
 function showMessage(text) {
@@ -598,24 +575,50 @@ function showMessage(text) {
 
 
 /* =====================================================
-   5. 비공개 영역 잠금
+   에러를 자세히 표시
+===================================================== */
+
+function getErrorText(error) {
+
+    if (!error) {
+        return "알 수 없는 오류";
+    }
+
+    return (
+        "오류 코드: " +
+        (error.code || error.error_code || "-") +
+        "\n오류 이름: " +
+        (error.name || "-") +
+        "\n오류 메시지: " +
+        (error.message || String(error))
+    );
+
+}
+
+
+/* =====================================================
+   비공개 영역 잠금
 ===================================================== */
 
 function lockPrivateArea() {
 
     passkeyUnlocked = false;
 
-    sessionStorage.removeItem("passkeyUnlocked");
+    sessionStorage.removeItem(
+        "passkeyUnlocked"
+    );
 
     lockedArea.style.display = "block";
 
     privateContent.style.display = "none";
 
+    privateNotes.innerHTML = "";
+
 }
 
 
 /* =====================================================
-   6. 비공개 영역 열기
+   비공개 영역 열기
 ===================================================== */
 
 async function unlockPrivateArea() {
@@ -637,65 +640,116 @@ async function unlockPrivateArea() {
 
 
 /* =====================================================
-   7. 현재 로그인 상태 확인
+   로그인 상태 확인
 ===================================================== */
 
 async function updateAuthUI() {
 
-    const {
-        data,
-        error
-    } = await supabase.auth.getSession();
+    try {
+
+        const {
+            data,
+            error
+        } = await supabase.auth.getSession();
 
 
-    if (error) {
+        if (error) {
+
+            authStatus.textContent =
+                "로그인 상태 확인 오류: " +
+                error.message;
+
+            return;
+
+        }
+
+
+        const session =
+            data.session;
+
+
+        if (session) {
+
+            authStatus.innerHTML =
+                "🟢 Supabase 계정 로그인 상태입니다.";
+
+
+            emailLoginBtn.disabled = true;
+
+            emailInput.disabled = true;
+
+
+            passkeyManagement.style.display =
+                "block";
+
+
+            await loadPasskeys();
+
+
+        } else {
+
+            authStatus.innerHTML =
+                "🔴 로그인되어 있지 않습니다.";
+
+
+            emailLoginBtn.disabled = false;
+
+            emailInput.disabled = false;
+
+
+            passkeyManagement.style.display =
+                "none";
+
+
+            passkeyList.innerHTML = "";
+
+        }
+
+
+        /*
+         * Supabase 세션이 없으면
+         * Passkey 인증 완료 상태도 인정하지 않습니다.
+         */
+
+        if (!session) {
+
+            lockPrivateArea();
+
+            return;
+
+        }
+
+
+        /*
+         * Passkey 인증을 실제로 완료한 경우에만
+         * 비공개 영역을 다시 엽니다.
+         */
+
+        if (passkeyUnlocked) {
+
+            await loadPrivateNotes();
+
+            lockedArea.style.display = "none";
+
+            privateContent.style.display = "block";
+
+        } else {
+
+            lockedArea.style.display = "block";
+
+            privateContent.style.display = "none";
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "updateAuthUI 오류:",
+            error
+        );
 
         authStatus.textContent =
-            "로그인 상태 확인 오류: " + error.message;
-
-        return;
-
-    }
-
-
-    const session =
-        data.session;
-
-
-    if (session) {
-
-        authStatus.innerHTML =
-            "🟢 Supabase 계정 로그인 상태입니다.";
-
-        emailLoginBtn.disabled = true;
-
-        emailInput.disabled = true;
-
-        passkeyManagement.style.display = "block";
-
-        await loadPasskeys();
-
-    } else {
-
-        authStatus.innerHTML =
-            "🔴 로그인되어 있지 않습니다.";
-
-        emailLoginBtn.disabled = false;
-
-        emailInput.disabled = false;
-
-        passkeyManagement.style.display = "none";
-
-    }
-
-
-    if (passkeyUnlocked) {
-
-        await unlockPrivateArea();
-
-    } else {
-
-        lockPrivateArea();
+            "화면 상태 확인 중 오류가 발생했습니다.";
 
     }
 
@@ -703,12 +757,7 @@ async function updateAuthUI() {
 
 
 /* =====================================================
-   8. 이메일 Magic Link
-=====================================================
-
-   이것은 최종 로그인 방식이 아니라
-   "처음 Passkey를 등록하기 위한 준비 단계"입니다.
-
+   이메일 Magic Link
 ===================================================== */
 
 emailLoginBtn.addEventListener(
@@ -755,9 +804,14 @@ emailLoginBtn.addEventListener(
 
         if (error) {
 
+            console.error(
+                "이메일 인증 오류:",
+                error
+            );
+
             showMessage(
-                "이메일 인증 실패:\n" +
-                error.message
+                "이메일 인증 실패:\n\n" +
+                getErrorText(error)
             );
 
             return;
@@ -766,7 +820,7 @@ emailLoginBtn.addEventListener(
 
 
         showMessage(
-            "인증 링크를 이메일로 보냈습니다.\n\n" +
+            "이메일 인증 링크를 이메일로 보냈습니다.\n\n" +
             "메일을 열고 인증 링크를 클릭한 뒤\n" +
             "이 페이지로 돌아오세요."
         );
@@ -776,7 +830,7 @@ emailLoginBtn.addEventListener(
 
 
 /* =====================================================
-   9. Passkey 등록
+   Passkey 등록
 ===================================================== */
 
 registerPasskeyBtn.addEventListener(
@@ -785,26 +839,66 @@ registerPasskeyBtn.addEventListener(
 
         showMessage(
             "Passkey 등록을 시작합니다.\n" +
-            "브라우저에서 지문, PIN 또는 기기 인증을 요청할 수 있습니다."
+            "잠시 후 브라우저에서 Windows PIN 또는\n" +
+            "기기 인증 창이 나타납니다."
         );
 
 
+        /*
+         * Passkey 등록은 기존 로그인 세션이 필요합니다.
+         */
+
         const {
-            data: sessionData
+            data: sessionData,
+            error: sessionError
         } = await supabase.auth.getSession();
 
 
-        if (!sessionData.session) {
+        if (sessionError) {
+
+            console.error(
+                "세션 확인 오류:",
+                sessionError
+            );
 
             showMessage(
-                "먼저 이메일 인증으로 로그인해주세요.\n" +
-                "Passkey 등록에는 기존 로그인 세션이 필요합니다."
+                "로그인 상태 확인 실패:\n\n" +
+                getErrorText(sessionError)
             );
 
             return;
 
         }
 
+
+        if (!sessionData.session) {
+
+            showMessage(
+                "❌ 현재 로그인 세션이 없습니다.\n\n" +
+                "먼저 이메일 인증 링크를 클릭해서\n" +
+                "로그인한 다음 다시 Passkey 등록을 눌러주세요."
+            );
+
+            return;
+
+        }
+
+
+        console.log(
+            "Passkey 등록 전 세션 확인:",
+            sessionData.session.user?.email
+        );
+
+
+        /*
+         * Supabase가
+         *
+         * 1. 등록용 challenge 생성
+         * 2. 브라우저 WebAuthn 실행
+         * 3. Passkey 검증
+         *
+         * 을 처리합니다.
+         */
 
         const {
             data,
@@ -814,11 +908,14 @@ registerPasskeyBtn.addEventListener(
 
         if (error) {
 
-            console.error(error);
+            console.error(
+                "Passkey 등록 오류:",
+                error
+            );
 
             showMessage(
-                "Passkey 등록 실패:\n" +
-                error.message
+                "❌ Passkey 등록 실패\n\n" +
+                getErrorText(error)
             );
 
             return;
@@ -826,16 +923,16 @@ registerPasskeyBtn.addEventListener(
         }
 
 
+        console.log(
+            "등록된 Passkey:",
+            data
+        );
+
+
         showMessage(
             "✅ Passkey 등록 성공!\n\n" +
             "이제 로그아웃한 뒤\n" +
             "'Passkey로 로그인'을 사용할 수 있습니다."
-        );
-
-
-        console.log(
-            "등록된 Passkey:",
-            data
         );
 
 
@@ -846,7 +943,7 @@ registerPasskeyBtn.addEventListener(
 
 
 /* =====================================================
-   10. Passkey 로그인
+   Passkey 로그인
 ===================================================== */
 
 passkeyLoginBtn.addEventListener(
@@ -854,18 +951,27 @@ passkeyLoginBtn.addEventListener(
     async function() {
 
         showMessage(
-            "Passkey 로그인을 시작합니다..."
+            "🔑 Passkey 로그인을 시작합니다...\n\n" +
+            "잠시 후 Windows PIN 또는\n" +
+            "기기 인증 창이 나타납니다."
         );
 
 
         /*
-         * 기존 이메일 세션이 남아 있으면
-         * 먼저 로그아웃합니다.
+         * 중요:
          *
-         * 이후 실제 Passkey 인증을 수행합니다.
+         * 기존 코드에는
+         *
+         * await supabase.auth.signOut();
+         *
+         * 이 있었습니다.
+         *
+         * 이 코드가 실행되면 SIGNED_OUT 이벤트가
+         * 먼저 발생합니다.
+         *
+         * Passkey 로그인은 기존 세션이 없어도
+         * 실행할 수 있으므로 삭제했습니다.
          */
-
-        await supabase.auth.signOut();
 
 
         const {
@@ -876,16 +982,17 @@ passkeyLoginBtn.addEventListener(
 
         if (error) {
 
-            console.error(error);
+            console.error(
+                "Passkey 로그인 오류:",
+                error
+            );
 
             lockPrivateArea();
 
             showMessage(
-                "❌ Passkey 로그인 실패:\n\n" +
-                error.message
+                "❌ Passkey 로그인 실패\n\n" +
+                getErrorText(error)
             );
-
-            await updateAuthUI();
 
             return;
 
@@ -898,13 +1005,19 @@ passkeyLoginBtn.addEventListener(
         );
 
 
-        showMessage(
-            "✅ Passkey 인증 성공!\n" +
-            "비공개 데이터를 불러옵니다."
-        );
-
+        /*
+         * Passkey 인증 성공 후에만
+         * 비공개 영역을 엽니다.
+         */
 
         await unlockPrivateArea();
+
+
+        showMessage(
+            "✅ Passkey 인증 성공!\n\n" +
+            "비공개 데이터를 불러왔습니다."
+        );
+
 
         await updateAuthUI();
 
@@ -913,7 +1026,7 @@ passkeyLoginBtn.addEventListener(
 
 
 /* =====================================================
-   11. 로그아웃
+   로그아웃
 ===================================================== */
 
 logoutBtn.addEventListener(
@@ -930,9 +1043,14 @@ logoutBtn.addEventListener(
 
         if (error) {
 
+            console.error(
+                "로그아웃 오류:",
+                error
+            );
+
             showMessage(
-                "로그아웃 오류:\n" +
-                error.message
+                "로그아웃 오류:\n\n" +
+                getErrorText(error)
             );
 
             return;
@@ -953,13 +1071,14 @@ logoutBtn.addEventListener(
 
 
 /* =====================================================
-   12. 비공개 데이터 가져오기
+   비공개 데이터 가져오기
 ===================================================== */
 
 async function loadPrivateNotes() {
 
     /*
-     * Passkey 인증이 없으면 절대로 데이터를 요청하지 않습니다.
+     * Passkey 인증이 완료되지 않았으면
+     * 데이터를 요청하지 않습니다.
      */
 
     if (!passkeyUnlocked) {
@@ -989,14 +1108,17 @@ async function loadPrivateNotes() {
 
     if (error) {
 
-        console.error(error);
+        console.error(
+            "secret_notes 접근 오류:",
+            error
+        );
 
         privateNotes.innerHTML =
             "<p>비공개 데이터를 가져오지 못했습니다.</p>";
 
         showMessage(
-            "비공개 데이터 접근 실패:\n" +
-            error.message
+            "비공개 데이터 접근 실패:\n\n" +
+            getErrorText(error)
         );
 
         return;
@@ -1055,7 +1177,7 @@ async function loadPrivateNotes() {
 
 
 /* =====================================================
-   13. Passkey 목록 가져오기
+   Passkey 목록
 ===================================================== */
 
 async function loadPasskeys() {
@@ -1075,10 +1197,6 @@ async function loadPasskeys() {
     }
 
 
-    /*
-     * 현재 로그인 사용자의 Passkey만 조회합니다.
-     */
-
     const {
         data,
         error
@@ -1087,7 +1205,13 @@ async function loadPasskeys() {
 
     if (error) {
 
-        console.error(error);
+        console.error(
+            "Passkey 목록 오류:",
+            error
+        );
+
+        passkeyManagement.style.display =
+            "block";
 
         passkeyList.innerHTML =
             "<p>Passkey 목록을 가져오지 못했습니다.</p>";
@@ -1151,6 +1275,21 @@ async function loadPasskeys() {
                 );
 
 
+            const lastUsed =
+                document.createElement("div");
+
+            lastUsed.className =
+                "passkey-date";
+
+            lastUsed.textContent =
+                "최근 사용: " +
+                (
+                    passkey.last_used_at
+                        ? formatDate(passkey.last_used_at)
+                        : "아직 사용하지 않음"
+                );
+
+
             const renameButton =
                 document.createElement("button");
 
@@ -1196,9 +1335,14 @@ async function loadPasskeys() {
 
                     if (error) {
 
+                        console.error(
+                            "Passkey 이름 변경 오류:",
+                            error
+                        );
+
                         showMessage(
-                            "이름 변경 실패:\n" +
-                            error.message
+                            "이름 변경 실패:\n\n" +
+                            getErrorText(error)
                         );
 
                         return;
@@ -1258,9 +1402,14 @@ async function loadPasskeys() {
 
                     if (error) {
 
+                        console.error(
+                            "Passkey 삭제 오류:",
+                            error
+                        );
+
                         showMessage(
-                            "Passkey 삭제 실패:\n" +
-                            error.message
+                            "Passkey 삭제 실패:\n\n" +
+                            getErrorText(error)
                         );
 
                         return;
@@ -1283,6 +1432,8 @@ async function loadPasskeys() {
 
             item.appendChild(date);
 
+            item.appendChild(lastUsed);
+
             item.appendChild(renameButton);
 
             item.appendChild(deleteButton);
@@ -1297,7 +1448,7 @@ async function loadPasskeys() {
 
 
 /* =====================================================
-   14. 날짜 표시
+   날짜 표시
 ===================================================== */
 
 function formatDate(dateString) {
@@ -1321,11 +1472,11 @@ function formatDate(dateString) {
 
 
 /* =====================================================
-   15. 인증 상태 변화 감시
+   인증 상태 변화 감시
 ===================================================== */
 
 supabase.auth.onAuthStateChange(
-    async function(event, session) {
+    function(event, session) {
 
         console.log(
             "Auth event:",
@@ -1334,12 +1485,15 @@ supabase.auth.onAuthStateChange(
 
 
         /*
-         * 로그아웃이면 비공개 영역 잠금
+         * 로그아웃이면 즉시 잠금
          */
 
         if (event === "SIGNED_OUT") {
 
             lockPrivateArea();
+
+            authStatus.innerHTML =
+                "🔴 로그아웃되었습니다.";
 
         }
 
@@ -1347,6 +1501,9 @@ supabase.auth.onAuthStateChange(
         /*
          * 이메일 Magic Link 로그인은
          * Passkey 인증으로 간주하지 않습니다.
+         *
+         * 따라서 로그인만 된 상태에서는
+         * 비공개 영역을 열지 않습니다.
          */
 
         if (event === "SIGNED_IN") {
@@ -1360,19 +1517,37 @@ supabase.auth.onAuthStateChange(
         }
 
 
-        await updateAuthUI();
+        /*
+         * 중요:
+         *
+         * Auth 이벤트 안에서 updateAuthUI()를
+         * 직접 await하지 않습니다.
+         *
+         * 다음 작업으로 넘겨서 인증 이벤트와
+         * 세션 조회가 서로 꼬이지 않도록 합니다.
+         */
+
+        setTimeout(
+            function() {
+
+                updateAuthUI();
+
+            },
+            0
+        );
 
     }
 );
 
 
 /* =====================================================
-   16. 페이지 처음 열었을 때
+   페이지 처음 열었을 때
 ===================================================== */
 
-await updateAuthUI();
+updateAuthUI();
 
 </script>
 
 </body>
 </html>
+```
